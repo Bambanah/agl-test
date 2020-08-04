@@ -9,5 +9,5 @@ export class CatListComponent {
   constructor() {}
 
   @Input() gender: string;
-  @Input() cats: [];
+  @Input() cats: string[];
 }

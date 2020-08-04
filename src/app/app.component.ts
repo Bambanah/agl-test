@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   title = 'Cool Cats and Kittens';
   cats: Object;
+
   ngOnInit() {
     this.catService.getCats().then((res) => {
       this.cats = res;
