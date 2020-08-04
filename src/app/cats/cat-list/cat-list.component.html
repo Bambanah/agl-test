@@ -1,0 +1,8 @@
+<div>
+  <h2 class="{{ gender }}-header">{{ gender | titlecase }}</h2>
+  <ul class="cat-list {{ gender }}-cats">
+    <li class="{{ gender }}-cat" *ngFor="let cat of cats">
+      {{ cat }}
+    </li>
+  </ul>
+</div>

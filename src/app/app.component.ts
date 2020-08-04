@@ -11,11 +11,12 @@ export class AppComponent implements OnInit {
 
   // Display loading icon when fetching data
   loading = true;
+  title = 'Cool Cats and Kittens';
 
   // Initialise cats array
   cats: Object = {
-    Male: [],
-    Female: [],
+    male: [],
+    female: [],
   };
 
   ngOnInit() {
@@ -39,15 +40,15 @@ export class AppComponent implements OnInit {
             // Only save cats
             if (pet.type == 'Cat') {
               // If a cat is found, add it to the relevant gender array
-              this.cats[person.gender].push(pet.name);
+              this.cats[person.gender.toLowerCase()].push(pet.name);
             }
           });
         }
       });
 
       // Sort male and female arrays
-      this.cats['Male'].sort();
-      this.cats['Female'].sort();
+      this.cats['male'].sort();
+      this.cats['female'].sort();
 
       // Data loaded
       this.loading = false;

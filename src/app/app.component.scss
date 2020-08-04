@@ -6,7 +6,7 @@
   align-items: center;
 
   font-family: "Recursive", sans-serif;
-  background-color: rgb(255, 255, 255);
+  color: #f8f8f2;
   min-height: 100vh;
 
   .content {
@@ -16,17 +16,8 @@
     }
 
     h1 {
+      color: #f1fa8c;
       margin-top: 0;
-    }
-
-    h2 {
-      margin: 0;
-      // text-align: center;
-    }
-
-    ul {
-      margin: 5px 0 0 0;
-      padding-left: 1rem;
     }
   }
 }

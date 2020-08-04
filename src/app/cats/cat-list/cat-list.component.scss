@@ -1,0 +1,17 @@
+h2 {
+  margin: 0;
+  // text-align: center;
+
+  &.male-header {
+    color: #8be9fd;
+  }
+
+  &.female-header {
+    color: #ff79c6;
+  }
+}
+
+ul {
+  margin: 5px 0 0 0;
+  padding-left: 1rem;
+}
