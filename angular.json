@@ -114,7 +114,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/agl-test"
+            "baseHref": "https://bambanah.github.io/agl-test/"
           }
         }
       }

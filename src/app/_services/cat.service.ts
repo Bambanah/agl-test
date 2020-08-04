@@ -11,7 +11,7 @@ import { Person } from '../_models/people';
 export class CatService {
   constructor(private http: HttpClient) {}
 
-  apiUrl = 'http://agl-developer-test.azurewebsites.net/people.json';
+  apiUrl = 'https://agl-developer-test.azurewebsites.net/people.json';
 
   getPeople(): Observable<Person[]> {
     return this.http.get<Person[]>(this.apiUrl);

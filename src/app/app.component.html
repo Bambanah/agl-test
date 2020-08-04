@@ -1,15 +1,10 @@
 <div class="container">
-  <ng-container *ngIf="loading; else elseTemplate">
-    <app-loading></app-loading>
-  </ng-container>
-  <ng-template #elseTemplate>
-    <div class="content">
-      <h1>{{ title }}</h1>
-
-      <div class="cat-lists">
-        <app-cat-list gender="male" [cats]="cats['male']"></app-cat-list>
-        <app-cat-list gender="female" [cats]="cats['female']"></app-cat-list>
-      </div>
+  <div *ngIf="!loading" class="content">
+    <!-- <app-loading></app-loading> -->
+    <h1>{{ title }}</h1>
+    <div class="cat-lists">
+      <app-cat-list gender="male" [cats]="cats['male']"></app-cat-list>
+      <app-cat-list gender="female" [cats]="cats['female']"></app-cat-list>
     </div>
-  </ng-template>
+  </div>
 </div>

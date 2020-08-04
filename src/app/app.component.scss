@@ -10,6 +10,8 @@
   min-height: 100vh;
 
   .content {
+    animation: fadein 0.5s;
+
     .cat-lists {
       display: flex;
       justify-content: space-around;
@@ -19,5 +21,14 @@
       color: #f1fa8c;
       margin-top: 0;
     }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
