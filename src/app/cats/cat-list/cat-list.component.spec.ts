@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { CatListComponent } from './cat-list.component';
 import { DebugElement } from '@angular/core';
 
-describe('CatListComponent', () => {
+describe('Cat List Component', () => {
   let component: CatListComponent;
   let fixture: ComponentFixture<CatListComponent>;
   let de: DebugElement;
@@ -23,7 +23,7 @@ describe('CatListComponent', () => {
     component.cats = ['Garfield', 'Borris', 'Jellie'];
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 

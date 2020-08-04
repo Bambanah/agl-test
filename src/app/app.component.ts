@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { CatsService } from './_services/cats.service';
+import { CatService } from './_services/cat.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { CatsService } from './_services/cats.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private catService: CatsService) {}
+  constructor(private catService: CatService) {}
 
   // Display loading icon when fetching data
   loading = true;
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   cats: Object;
 
   ngOnInit() {
-    this.catService.getCats().then((cats) => {
+    this.catService.getCats().subscribe((cats) => {
       this.cats = cats;
       this.loading = false;
     });
