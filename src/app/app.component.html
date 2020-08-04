@@ -6,15 +6,21 @@
     <div class="content">
       <h1>Cool Cats and Kittens</h1>
 
-      <h2>Male</h2>
-      <ul>
-        <li *ngFor="let cat of cats['Male']">{{ cat }}</li>
-      </ul>
+      <div class="cat-lists">
+        <div class="cat-list male-cats">
+          <h2>Male</h2>
+          <ul>
+            <li *ngFor="let cat of cats['Male']">{{ cat }}</li>
+          </ul>
+        </div>
 
-      <h2>Female</h2>
-      <ul>
-        <li *ngFor="let cat of cats['Female']">{{ cat }}</li>
-      </ul>
+        <div class="cat-list female-cats">
+          <h2>Female</h2>
+          <ul>
+            <li *ngFor="let cat of cats['Female']">{{ cat }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>
