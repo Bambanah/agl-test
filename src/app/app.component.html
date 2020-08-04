@@ -1,5 +1,5 @@
 <div class="container">
-  <ng-container *ngIf="this.loading; else elseTemplate">
+  <ng-container *ngIf="loading; else elseTemplate">
     <app-loading></app-loading>
   </ng-container>
   <ng-template #elseTemplate>
