@@ -1,0 +1,12 @@
+.container {
+  font-family: "Recursive", sans-serif;
+  background-color: rgb(251, 253, 255);
+  min-height: 100vh;
+
+  .content {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
