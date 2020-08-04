@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
   cats: Object;
 
   ngOnInit() {
-    this.catService.getCats().then((res) => {
-      this.cats = res;
+    this.catService.getCats().then((cats) => {
+      this.cats = cats;
       this.loading = false;
     });
   }

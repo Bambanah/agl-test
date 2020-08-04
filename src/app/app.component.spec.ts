@@ -41,7 +41,7 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('Cool Cats and Kittens');
   });
 
-  it('should render title', () => {
+  it('should display heading', () => {
     expect(de.query(By.css('h1')).nativeElement.innerText).toBe(
       'Cool Cats and Kittens'
     );

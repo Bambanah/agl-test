@@ -20,22 +20,44 @@ describe('CatListComponent', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
 
-    component.cats = ['Garfield', 'Garfield', 'Jellie'];
+    component.cats = ['Garfield', 'Borris', 'Jellie'];
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display cats belonging to males', () => {
-    component.gender = 'male';
-    fixture.detectChanges();
-    expect(de.queryAll(By.css('.male-cat')).length).toBeGreaterThan(0);
+  describe('Male Cats', () => {
+    beforeEach(() => {
+      component.gender = 'male';
+      fixture.detectChanges();
+    });
+
+    it('should display male heading', () => {
+      expect(de.query(By.css('.male-header')).nativeElement.innerText).toBe(
+        'Male'
+      );
+    });
+
+    it('should display cats belonging to males', () => {
+      expect(de.queryAll(By.css('.male-cat')).length).toBeGreaterThan(0);
+    });
   });
 
-  it('should display cats belonging to females', () => {
-    component.gender = 'female';
-    fixture.detectChanges();
-    expect(de.queryAll(By.css('.female-cat')).length).toBeGreaterThan(0);
+  describe('Female Cats', () => {
+    beforeEach(() => {
+      component.gender = 'female';
+      fixture.detectChanges();
+    });
+
+    it('should display female heading', () => {
+      expect(de.query(By.css('.female-header')).nativeElement.innerText).toBe(
+        'Female'
+      );
+    });
+
+    it('should display cats belonging to females', () => {
+      expect(de.queryAll(By.css('.female-cat')).length).toBeGreaterThan(0);
+    });
   });
 });
