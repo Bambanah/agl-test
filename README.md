@@ -12,14 +12,16 @@ This Angular app fetches a collection of people and their pets from a [JSON web 
 
 ## Approach
 
-* The Angular `HttpClient` module is used to fetch the json data from the API, saving it as a list of objects (people).
-* This list is then sifted through and every cat that is found is saved to an object `{ male: [], female: []}` for easy reference.
-* Separate components are used to display each sorted gender list, with the gender and list of cats being passed as inputs.
-* While this is going on, a loading component is displayed to prevent the content from jumping around while the DOM is being populated.
+* Angular service is created to fetch cats data.
+* Data is requested from the json api and the get function returns an Observable.
+* When the http request is completed, all cats are extracted from the data and sorted alphabetically in their relevant gender list.
+* After sorting the cats data, the observable returns the data and completes.
+* The completion of the cats observable as called by the App component will toggle an `isLoaded` boolean and display the information.
+* Separate components are used to display each sorted gender list, with the gender and list of cats being passed as inputs to those components.
 
 ### Unit testing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Karma](https://karma-runner.github.io) is used for unit testing. At time of writing, unit tests have full 100% code coverage. `npm run test` or `yarn test` to run tests.
 
 ### Colour Scheme
 
