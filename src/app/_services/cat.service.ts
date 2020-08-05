@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Cats } from '../_models/cats';
-import { Person } from '../_models/people';
+import { Person } from '../_models/person';
 
 @Injectable({
   providedIn: 'root',
@@ -13,10 +13,12 @@ export class CatService {
 
   apiUrl = 'https://agl-developer-test.azurewebsites.net/people.json';
 
+  // Get all people returned by API
   getPeople(): Observable<Person[]> {
     return this.http.get<Person[]>(this.apiUrl);
   }
 
+  // Filter only cats from people array, and save to 'male' and 'female'
   getCats(): Observable<Cats> {
     // Create observable to be returned while fetching json data
     const catObservable = new Observable<Cats>((observer) => {

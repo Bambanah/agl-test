@@ -3,19 +3,19 @@ import {
   async,
   ComponentFixture,
   fakeAsync,
-  tick,
 } from '@angular/core/testing';
 
-import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DebugElement } from '@angular/core';
+
+import { By } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 
 import { AppComponent } from './app.component';
-import { LoadingComponent } from './loading/loading.component';
 import { CatListComponent } from './cats/cat-list/cat-list.component';
-import { By } from '@angular/platform-browser';
-import { Cats } from './_models/cats';
+
 import { CatService } from './_services/cat.service';
-import { of, scheduled, Observable } from 'rxjs';
+import { Cats } from './_models/cats';
 
 describe('App Component', () => {
   let component: AppComponent;
@@ -27,7 +27,7 @@ describe('App Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [AppComponent, LoadingComponent, CatListComponent],
+      declarations: [AppComponent, CatListComponent],
       providers: [CatService],
     }).compileComponents();
   }));
@@ -37,6 +37,7 @@ describe('App Component', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
 
+    // Dummy data to be used for testing
     dummyCatData = {
       male: ['Garfield'],
       female: ['Max'],
@@ -55,15 +56,19 @@ describe('App Component', () => {
   });
 
   it('should have a loading variable', () => {
-    expect(component.loading).toBeDefined();
+    expect(component.isLoaded).toBeDefined();
   });
 
   it('should start as unloaded', () => {
-    expect(component.loading).toBeTrue();
+    expect(component.isLoaded).toBeFalse();
   });
+
   describe('after receiving cat data from service', () => {
     beforeEach(() => {
+      // Create service element
       const service = fixture.debugElement.injector.get(CatService);
+
+      // Return fake data from getCats method
       spyOn(service, 'getCats').and.callFake(() => {
         return new Observable<Cats>((observer) => {
           observer.next(dummyCatData);
@@ -71,6 +76,7 @@ describe('App Component', () => {
         });
       });
 
+      // Run ngOnInit function (runs getCats)
       component.ngOnInit();
     });
 
@@ -79,13 +85,13 @@ describe('App Component', () => {
     }));
 
     it('should toggle loading', fakeAsync(() => {
-      expect(component.loading).toBeFalse();
+      expect(component.isLoaded).toBeTrue();
     }));
   });
 
   describe('when loaded', () => {
     beforeEach(() => {
-      component.loading = false;
+      component.isLoaded = true;
       component.cats = dummyCatData;
       fixture.detectChanges();
     });
@@ -99,19 +105,11 @@ describe('App Component', () => {
     it('should display cat lists', () => {
       expect(de.query(By.css('h1'))).toBeTruthy();
     });
-
-    it('should hide loading component', () => {
-      expect(de.query(By.css('.spinner-container'))).toBeFalsy();
-    });
   });
 
   describe('when not loaded yet', () => {
     beforeEach(() => {
       component.cats = dummyCatData;
-    });
-
-    it('should display loading component', () => {
-      expect(de.query(By.css('.spinner-container'))).toBeTruthy();
     });
 
     it('should hide cat lists', () => {

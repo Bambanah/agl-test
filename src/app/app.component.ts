@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { CatService } from './_services/cat.service';
+import { Cats } from './_models/cats';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +11,18 @@ import { CatService } from './_services/cat.service';
 export class AppComponent implements OnInit {
   constructor(private catService: CatService) {}
 
-  // Display loading icon when fetching data
-  loading = true;
+  // Don't display information until finished loading
+  isLoaded = false;
 
-  title = 'Cool Cats and Kittens';
-  cats: Object;
+  // Initialise variables
+  title = 'Cool Cats and Kittens'; // Header displayed on page
+  cats: Cats; // Local object to store cats
 
   ngOnInit() {
+    // Get list of cats from service
     this.catService.getCats().subscribe((cats) => {
-      this.cats = cats;
-      this.loading = false;
+      this.cats = cats; // Save to local variable
+      this.isLoaded = true; // Toggle loading (display cats)
     });
   }
 }

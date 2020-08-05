@@ -6,7 +6,7 @@ import {
 
 import { CatService } from './cat.service';
 import { Cats } from '../_models/cats';
-import { Person } from '../_models/people';
+import { Person } from '../_models/person';
 
 describe('Cat Service', () => {
   let service: CatService, httpTestingController: HttpTestingController;

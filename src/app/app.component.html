@@ -1,6 +1,5 @@
 <div class="container">
-  <div *ngIf="!loading" class="content">
-    <!-- <app-loading></app-loading> -->
+  <div *ngIf="isLoaded" class="content">
     <h1>{{ title }}</h1>
     <div class="cat-lists">
       <app-cat-list gender="male" [cats]="cats['male']"></app-cat-list>

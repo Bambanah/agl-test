@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { CatListComponent } from './cat-list.component';
 import { DebugElement } from '@angular/core';
+
+import { CatListComponent } from './cat-list.component';
 
 describe('Cat List Component', () => {
   let component: CatListComponent;
@@ -27,7 +28,7 @@ describe('Cat List Component', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Male Cats', () => {
+  describe('male cats', () => {
     beforeEach(() => {
       component.gender = 'male';
       fixture.detectChanges();
@@ -44,7 +45,7 @@ describe('Cat List Component', () => {
     });
   });
 
-  describe('Female Cats', () => {
+  describe('female cats', () => {
     beforeEach(() => {
       component.gender = 'female';
       fixture.detectChanges();
