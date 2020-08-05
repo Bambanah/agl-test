@@ -18,10 +18,10 @@ export class CatService {
     return this.http.get<Person[]>(this.apiUrl);
   }
 
-  // Filter only cats from people array, and save to 'male' and 'female'
   getCats(): Observable<Cats> {
     // Create observable to be returned while fetching json data
     const catObservable = new Observable<Cats>((observer) => {
+      // Initialise empty object
       let cats: Cats = { male: [], female: [] };
 
       // Subscribe to getPeople helper function
